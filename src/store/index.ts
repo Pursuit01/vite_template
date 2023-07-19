@@ -1,9 +1,16 @@
-import { useGlobalStore } from "./modules//global";
-const stores = import.meta.glob(["@/store/modules/*.ts"], { eager: true });
+import { useGlobalStore } from "./modules/global";
+import type { Pinia } from "pinia";
+interface ImportMetaGlob {
+  [specifier: string]: () => { default: { run: Function } };
+}
+
+const stores: ImportMetaGlob = import.meta.glob(["@/store/modules/*.ts"], {
+  eager: true,
+});
 
 console.log("stores", stores);
 
-export const registerStore = (pinia: any) => {
+export const registerStore = (pinia: Pinia) => {
   // const globalStore = useGlobalStore();
   pinia.use(({ pinia, store }) => {
     console.log(pinia, store);
