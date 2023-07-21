@@ -3,7 +3,7 @@
     <h2>{{ userInfo.firstName }} -- {{ userInfo.lastName }}</h2>
     <h2>{{ userStore.fullName }}</h2>
     <h3>年龄：{{ userInfo.age }}</h3>
-    <el-button @click="changeAge">点击修改年龄</el-button>
+    <el-button type="primary" @click="changeAge">点击修改年龄</el-button>
     <el-button @click="resetState">重置</el-button>
     <el-button @click="changeGlobal">点击修改全局仓库的数据</el-button>
     <br />

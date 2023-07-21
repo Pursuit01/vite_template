@@ -1,7 +1,7 @@
 import { useGlobalStore } from "./modules/global";
 import type { Pinia } from "pinia";
 interface ImportMetaGlob {
-  [specifier: string]: () => { default: { run: Function } };
+  [specifier: string]: () => { default: {} };
 }
 
 const stores: ImportMetaGlob = import.meta.glob(["@/store/modules/*.ts"], {

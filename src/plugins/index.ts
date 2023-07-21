@@ -6,4 +6,3 @@ export default {
     registerStore(pinia);
   },
 };
-export async function foo() {}
