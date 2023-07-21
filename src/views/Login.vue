@@ -1,25 +1,19 @@
 <template>
   <div>
     <h2>登陆页面</h2>
-    <el-button @click="stopAnimate">停止动画</el-button>
-    <div class="box" ref="box"></div>
+    <div class="box"></div>
+    <SvgIcon name="vue" style="width: 3em; height: 3em" prefix="icon"></SvgIcon>
   </div>
 </template>
 
-<script setup>
-const box = ref();
-const boxStyle = reactive({
-  animation: "move 10s infinite",
-});
-const stopAnimate = () => {};
-</script>
+<script setup></script>
 
 <style lang="less" scoped>
 .box {
   width: 100px;
   height: 100px;
   background-color: green;
-  animation: move 10s infinite;
+  // animation: move 10s infinite;
 }
 @keyframes move {
   0% {
