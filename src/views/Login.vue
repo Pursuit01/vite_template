@@ -2,11 +2,25 @@
   <div>
     <h2>登陆页面</h2>
     <div class="box"></div>
-    <SvgIcon name="vue" style="width: 3em; height: 3em" prefix="icon"></SvgIcon>
+    
+    <el-button type="primary">按钮</el-button>
+    <!-- <SvgIcon name="vue" style="width: 3em; height: 3em" prefix="icon"></SvgIcon> -->
+    <!-- <component
+      v-for="(item, index) in list"
+      :key="index"
+      :is="item"
+    ></component> -->
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+// import Com from "./404.vue";
+// import Com2 from "./404.vue";
+// const list = [
+//   {isRender: true, com: Com},
+//   {isRender: false, com: Com2},
+// ];
+</script>
 
 <style lang="less" scoped>
 .box {

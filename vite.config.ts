@@ -4,13 +4,16 @@ import AutoImport from "unplugin-auto-import/vite";
 import path from "path";
 import { viteMockServe } from "vite-plugin-mock";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-
+import ElementPlus from 'unplugin-element-plus/vite'
 // https://vitejs.dev/config/
+
 export default defineConfig(() => {
-  console.log("process", process.platform);
   return {
     plugins: [
       vue(),
+      ElementPlus({
+        useSource: true,
+      }),
       viteMockServe({
         // default
         mockPath: "mock",
@@ -37,6 +40,9 @@ export default defineConfig(() => {
     css: {
       preprocessorOptions: {
         less: {},
+        scss: {
+          additionalData: `@use "@/style/modules/index.scss";`
+        }
       },
     },
     resolve: {
