@@ -26,9 +26,8 @@ import "virtual:svg-icons-register";
 import registGlobalCom from "./components/registGlobalCom";
 
 async function bootstrap() {
+  
   const app = createApp(App);
-
-  app.use(ElementPlus, { size: "default", locale: zhCn });
 
   // 使用pinia
   const pinia = createPinia();
@@ -39,6 +38,8 @@ async function bootstrap() {
 
   // 注册全局组件
   app.use(registGlobalCom);
+
+  app.use(ElementPlus, { size: "default", locale: zhCn });
 
   // app.use(plugin, { name: "xm" });
   app.use(plugin, { pinia });
