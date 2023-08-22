@@ -24,6 +24,8 @@ import "@/utils/request";
 import "virtual:svg-icons-register";
 // 引入注册全局组件的插件
 import registGlobalCom from "./components/registGlobalCom";
+// 引入zr-component
+import zrComponent from "zr-component";
 
 async function bootstrap() {
   
@@ -38,6 +40,9 @@ async function bootstrap() {
 
   // 注册全局组件
   app.use(registGlobalCom);
+
+  // 注册zr-compoment
+  app.use(zrComponent)
 
   app.use(ElementPlus, { size: "default", locale: zhCn });
 

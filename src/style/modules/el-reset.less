@@ -1,0 +1,746 @@
+/*
+  author: 戴伟
+  date: 001 2022/06/01 11:44:40
+  file: src\styles\main.less
+  des:
+    全局样式的设置 包括组件UI的
+*/
+
+:root {
+  --el-main-bg-color: #f7f8fa;
+  --el-header-height: 112px;
+
+  --el-color-primary: #4886ff;
+  //--el-component-size: 40px;
+
+  --el-border-color: #d8e0f0;
+  //--el-text-color-disabled:red;
+  --el-border-radius-base: 8px;
+  --el-text-color-placeholder: #9ca3ad;
+  --el-text-color-regular: #12294d;
+
+  --el-fill-color-light: #f5f6fa;
+
+  --el-checkbox-border-radius: 2px;
+}
+
+.list-number {
+  counter-reset: index;
+}
+.item-number {
+  counter-increment: index;
+}
+
+.page-main {
+  --el-border-radius-base: 8px;
+  --el-border-width: 2px;
+
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px 1px rgba(53, 56, 63, 0.1);
+
+  .el-scrollbar {
+    --el-text-color-secondary: rgba(72, 134, 255, 0.5);
+  }
+}
+
+.el-button {
+  padding: 0 15px;
+  // --el-border-radius-base: 12px;
+
+  //box-shadow: 0px 6px 12px 0px rgba(63,140,255,0.26);
+
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  --el-border: var(--el-border-width) var(--el-border-style)
+    var(--el-border-color);
+
+  &.default-width {
+    min-width: 104px;
+  }
+
+  &.zr-iconfont {
+    &:before {
+      margin-right: 4px;
+    }
+  }
+
+  &:not(.el-button--primary).default-button {
+    --el-button-bg-color: rgba(229, 233, 242, 0.5);
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    --el-border-width: 1px;
+    --el-border-color: #e5e9f2;
+    --el-button-text-color: #6c6e73;
+    padding: 0 8px;
+  }
+}
+
+.el-button--primary.is-plain {
+  //--el-color-primary-light-9:#fff;
+  --el-color-primary-light-9: #fff;
+  --el-color-primary-light-5: var(--el-color-primary);
+  //background: #4886FF;
+  //box-shadow: 0px 6px 12px 0px rgba(63,140,255,0.26);
+}
+
+.el-radio-group {
+  &.d-radio-group-default {
+    .el-radio__inner {
+      --el-radio-input-width: 16px;
+      --el-radio-input-height: 16px;
+      background-color: var(--el-color-white);
+
+      &:after {
+        width: 8px;
+        height: 8px;
+        background-color: var(--el-color-primary);
+      }
+    }
+
+    .el-radio__input.is-checked {
+      .el-radio__inner {
+        background-color: var(--el-color-white);
+        border: var(--el-radio-input-border);
+      }
+    }
+  }
+}
+
+.el-switch.form-switch {
+  .el-switch__core {
+    height: 24px;
+    //background: linear-gradient(180deg, #53A4FD 0%, #4886FF 100%);
+    box-shadow: 0px 6px 12px 0px rgba(63, 140, 255, 0.26);
+    //border-radius: 12px;
+    border-radius: 24px;
+    min-width: 56px;
+
+    .el-switch__inner {
+      .is-text {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+      }
+    }
+
+    .el-switch__action {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.is-checked {
+    .el-switch__core {
+      .el-switch__action {
+        left: calc(100% - 21px);
+      }
+    }
+  }
+}
+
+.d-checkbox-group-default {
+  .el-checkbox {
+    --el-checkbox-border-radius: 2px;
+  }
+}
+
+.el-form {
+  --el-border-radius-base: 8px;
+  --el-text-color-regular: #6c6e73;
+  --el-border-color: #b8c8e0;
+  --el-text-color-placeholder: #c0c2c6;
+  // 输入框 input append 默认字体 和 背景颜色
+  --el-color-info: #6c6e73;
+  --el-fill-color-light: #f5f6fa;
+
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+
+  .el-form-item {
+    .el-form-item__label {
+    }
+
+    .el-input__wrapper {
+      padding: 1px 12px;
+    }
+
+    .el-input-group__append {
+      .el-button.input-search-button {
+        padding: 0;
+        --el-border-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .el-button.d-avatar-upload-btn {
+      --el-border-radius-base: 8px;
+      --el-border-width: 2px;
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+    }
+
+    .el-button--primary.is-plain {
+      //--el-color-primary-light-9:#fff;
+      --el-color-primary-light-9: #fff;
+      --el-color-primary-light-5: var(--el-color-primary);
+      --el-border: var(--el-border-width) var(--el-border-style)
+        var(--el-border-color);
+      //background: #4886FF;
+      //box-shadow: 0px 6px 12px 0px rgba(63,140,255,0.26);
+    }
+  }
+}
+
+//slider-card
+.el-form.el-form--default {
+  &.list-number {
+    .slider-card.item-number {
+      &:before {
+        content: counter(index);
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(180deg, #7ebbff 0%, #4886ff 100%);
+        box-shadow: 0px 6px 12px 0px rgba(63, 140, 255, 0.26);
+        border: 1px solid rgba(72, 134, 255, 0.2);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 24px;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .form-item.el-form-item {
+    .el-row {
+      .d-form-list-col {
+        .el-form-item {
+          &.slider-card {
+            margin-bottom: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .el-form-item {
+    &.slider-card {
+      background: var(--el-fill-color-light);
+      padding: 0 8px 8px 16px;
+      border-radius: 4px;
+      display: block;
+      position: relative;
+      .el-form-item__label {
+        padding: 0;
+        margin: 0;
+        display: block;
+        &:before {
+          display: none;
+        }
+      }
+
+      .slider-label {
+        display: flex;
+        height: 32px;
+        align-items: center;
+        justify-content: space-between;
+
+        .slider-label-left {
+          font-size: 16px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #262b34;
+          white-space: nowrap;
+          .icon {
+            font-weight: bold;
+            padding-left: 4px;
+          }
+        }
+
+        .slider-label-right {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: var(--el-text-color-regular);
+
+          .title {
+            padding-right: 5px;
+          }
+
+          .number {
+            width: 2em;
+            text-align: right;
+          }
+        }
+      }
+
+      //--el-slider-button-size
+      .el-slider {
+        //--el-slider-button-size:0;
+        --el-slider-main-bg-color: #fff;
+        --el-slider-button-size: 20px;
+        --el-slider-height: 12px;
+        --el-slider-border-radius: 12px;
+        --el-slider-runway-bg-color: #e5e9f2;
+        --el-slider-disabled-color: #fff;
+        --el-component-size: 24px;
+        --el-border: 0;
+        --el-disabled-bg-color: #fff;
+
+        height: auto;
+        padding: 0 0 24px;
+
+        .el-slider__stop {
+          display: none;
+        }
+
+        .el-slider__runway {
+          box-shadow: inset 0px 1px 2px 1px rgba(34, 97, 220, 0.26);
+
+          &.show-input {
+            margin-right: 16px;
+          }
+
+          .el-slider__bar {
+            background: linear-gradient(270deg, #aad2ff 0%, #4886ff 100%);
+            box-shadow: inset 0px 1px 2px 1px rgba(34, 97, 220, 0.26);
+          }
+
+          .el-slider__button-wrapper {
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            .el-slider__button {
+              border-width: 5px;
+              box-shadow: 0px 2px 4px 0px rgba(63, 140, 255, 0.26),
+                inset 0px 1px 3px 0px rgba(34, 97, 220, 0.26);
+              background: var(--el-color-primary);
+            }
+          }
+
+          &.is-disabled {
+            .el-slider__button {
+              opacity: 0.8;
+            }
+          }
+        }
+
+        .el-slider__input {
+          width: 48px;
+
+          .el-input {
+            .el-input__wrapper {
+              box-shadow: none;
+              padding: 1px 6px;
+
+              &.is-focus {
+                box-shadow: 0 0 0 1px var(--el-input-focus-border-color) inset;
+              }
+            }
+
+            &.is-disabled {
+              .el-input__wrapper {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+
+        .el-slider__marks-text {
+          font-size: 16px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #9ea1a7;
+        }
+      }
+    }
+  }
+
+  .d-form-list-children-col.time-card {
+    > .d-form-list-row {
+      background: var(--el-fill-color-light);
+      border-radius: 4px;
+      height: 48px;
+      --el-component-size: 24px;
+      padding-left: 16px;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-right: 21px;
+      margin-bottom: 16px;
+      position: relative;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+
+      .form-item {
+        &.el-form-item {
+          margin-bottom: 0;
+
+          .el-form-item__label {
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: var(--el-text-color-regular);
+            padding-right: 8px;
+            line-height: 32px;
+          }
+
+          .el-form-item__content {
+            padding-right: 24px;
+          }
+
+          .form-time-picker {
+            .el-input__prefix {
+              display: none;
+            }
+
+            .el-input__wrapper {
+              position: relative;
+
+              &:before {
+                content: " ";
+                display: block;
+                position: absolute;
+                background: #4886ff;
+                opacity: 0.2;
+                width: 100%;
+                height: 100%;
+              }
+
+              background: none;
+              --el-input-border-radius: 4px;
+              padding: 0;
+              width: 48px;
+
+              .el-input__inner {
+                z-index: 10;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.item-number {
+      > .d-form-list-row {
+        &:before {
+          content: counter(index);
+          position: absolute;
+          top: -12px;
+          left: -12px;
+          display: block;
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(180deg, #7ebbff 0%, #4886ff 100%);
+          box-shadow: 0px 6px 12px 0px rgba(63, 140, 255, 0.26);
+          border: 1px solid rgba(72, 134, 255, 0.2);
+          border-radius: 50%;
+          text-align: center;
+          line-height: 24px;
+          font-size: 14px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.el-popper.slider-card-tooltip {
+  --el-text-color-primary: #d2dffb;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  line-height: 1;
+  position: relative;
+  color: #6c6e73 !important;
+  background: #d2dffb !important;
+  border: 0 !important;
+  box-shadow: inset 0px 0px 3px 1px rgba(34, 97, 220, 0.2);
+
+  .el-popper__arrow {
+    mix-blend-mode: color;
+
+    &:before {
+      box-shadow: inset 0px 0px 3px 1px rgba(34, 97, 220, 0.2);
+    }
+  }
+}
+
+//slider-card
+
+// time-cart
+.el-form.el-form--default {
+  .d-form-list-children-col.time-card {
+    > .d-form-list-row {
+      background: var(--el-fill-color-light);
+      border-radius: 4px;
+      height: 48px;
+      --el-component-size: 24px;
+      padding-left: 16px;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-right: 21px;
+      margin-bottom: 16px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+
+      > .d-form-list-col {
+        flex: 1;
+        &.time-start,
+        &.time-end {
+          min-width: 120px;
+        }
+        &.time-text {
+          width: 70px;
+          flex-shrink: 0;
+          flex: none;
+        }
+        &.time-switch {
+          max-width: 80px;
+        }
+      }
+
+      .form-item {
+        &.el-form-item {
+          margin-bottom: 0;
+
+          .el-form-item__label {
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: var(--el-text-color-regular);
+            padding-right: 8px;
+            line-height: 32px;
+          }
+
+          .el-form-item__content {
+            padding-right: 12px;
+          }
+
+          .form-time-picker {
+            .el-input__prefix {
+              display: none;
+            }
+
+            .el-input__wrapper {
+              position: relative;
+
+              &:before {
+                content: " ";
+                display: block;
+                position: absolute;
+                background: #4886ff;
+                opacity: 0.2;
+                width: 100%;
+                height: 100%;
+              }
+
+              background: none;
+              --el-input-border-radius: 4px;
+              padding: 0;
+              width: 48px;
+
+              .el-input__inner {
+                z-index: 10;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+
+      .time-text {
+        .form-item {
+          .el-form-item__content {
+            color: var(--el-color-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+// time-cart
+
+.g-default-table.el-table {
+  --el-table-header-bg-color: #f5f6fa;
+  --el-border-radius-small: 2px;
+  thead {
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #9ea1a7;
+
+    .el-table__cell {
+      height: 54px;
+    }
+
+    .el-table__column-filter-trigger {
+      margin-left: 4px;
+      color: var(--el-color-info);
+      font-size: 12px;
+
+      .el-icon {
+        display: none;
+      }
+
+      &:after {
+        font-family: "zr-iconfont";
+        content: "\e69f";
+        display: block;
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+.el-table-filter {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+
+  .el-table-filter__list {
+    padding: 8px 10px 25px;
+
+    .el-table-filter__list-item {
+      color: var(--el-color-info);
+
+      border-radius: 4px;
+      padding: 0;
+      height: 23px;
+      line-height: 23px;
+      margin-bottom: 8px;
+      text-align: center;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        --el-color-primary-light-9: #f5f6fa;
+      }
+
+      &.is-active {
+        background: rgba(72, 134, 255, 0.2);
+        box-shadow: 0px 2px 6px 0px rgba(63, 140, 255, 0.1);
+
+        --el-color-info: var(--el-color-primary);
+      }
+    }
+  }
+
+  .el-table-section-header-btn-defaul {
+    &:hover {
+      //background-color: transparent;
+    }
+  }
+}
+
+//section  el-dialog
+.el-overlay-dialog {
+  --el-border-radius-small: 8px;
+  font-family: PingFangSC-Medium, PingFang SC;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.el-dialog.g-dialog {
+  line-height: 1;
+  --el-dialog-padding-primary: 16px 24px 8px;
+  --container-padding: 40px 60px 0px;
+  --el-dialog-header-height: 48px;
+  --el-dialog-footer-height: 72px;
+
+  max-width: 200%;
+  margin: auto;
+
+  box-shadow: 0px 6px 58px 0px rgba(121, 145, 173, 0.2);
+
+  .el-dialog__header {
+    --el-text-color-primary: #0a1629;
+    --el-dialog-title-font-size: 16px;
+    margin: 0px;
+    height: var(--el-dialog-header-height);
+    display: flex;
+    align-items: center;
+    padding: var(--el-dialog-padding-primary);
+    padding-bottom: 0px;
+    position: relative;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.88);
+    line-height: 1;
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: var(--el-color-primary);
+      z-index: 0;
+      opacity: 0.05;
+    }
+
+    * {
+      position: relative;
+      z-index: 5;
+    }
+    .el-dialog__title {
+      line-height: 1;
+    }
+    .el-dialog__headerbtn {
+      position: absolute;
+      top: 0;
+      right: 0px;
+      height: var(--el-dialog-header-height);
+      width: calc(var(--el-dialog-header-height) + 20px);
+      --el-color-info: var(--el-text-color-regular);
+      padding-top: 16px;
+      font-size: var(--el-dialog-title-font-size);
+    }
+  }
+
+  .el-dialog__body {
+    padding: 0px;
+
+    > div {
+      padding: var(--container-padding);
+    }
+  }
+
+  .el-dialog__footer {
+    padding: 20px 40px 40px;
+    --el-border-color: transparent;
+  }
+
+  .el-button {
+    --el-font-weight-primary: 400;
+    --el-text-color-regular: #6c6e73;
+    --el-border-radius-base: 12px;
+    min-width: 72px;
+  }
+}

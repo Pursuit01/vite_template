@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import AutoImport from "unplugin-auto-import/vite";
 import path from "path";
+import basicSsl from '@vitejs/plugin-basic-ssl'
 import { viteMockServe } from "vite-plugin-mock";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import ElementPlus from 'unplugin-element-plus/vite'
@@ -9,8 +10,16 @@ import ElementPlus from 'unplugin-element-plus/vite'
 
 export default defineConfig(() => {
   return {
+    server: {
+      https: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*' //必须设置跨域处理，非同源下主项目访问不到子项目， 会被拦截
+      },
+
+    },
     plugins: [
       vue(),
+      basicSsl(),
       ElementPlus({
         useSource: true,
       }),
@@ -50,5 +59,8 @@ export default defineConfig(() => {
         "@": path.resolve(__dirname, "src"),
       },
     },
+    build: {
+      outDir: 'dist/access-control'
+    }
   };
 });
